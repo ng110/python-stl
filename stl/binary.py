@@ -40,7 +40,7 @@ class Reader(object):
 
     def read_header(self):
         bytes = self.read_bytes(80)
-        return struct.unpack('80s', bytes)[0].strip('\0')
+        return struct.unpack('80s', bytes)[0].strip(b'\0')
 
 
 class FormatError(ValueError):
@@ -56,10 +56,10 @@ def parse(file):
 
     num_facets = r.read_uint32()
 
-    for i in xrange(0, num_facets):
+    for i in range(0, num_facets):
         normal = r.read_vector3d()
         vertices = tuple(
-            r.read_vector3d() for j in xrange(0, 3)
+            r.read_vector3d() for j in range(0, 3)
         )
 
         attr_byte_count = r.read_uint16()

@@ -3,3 +3,6 @@ env/*
 *.egg
 *.egg-info
 dist/*
+stl.egg-info/*
+tests/__pycache__/*
+.cache/*
